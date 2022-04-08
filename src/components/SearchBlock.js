@@ -14,9 +14,6 @@ export const SearchBlock = ({navigation}) => {
 
   const dispatch = useDispatch();
 
-  const favHotels = useSelector(state => state.hotelsReducer.favourite);
-  console.log(favHotels);
-
   const onSearch = () => {
     if (!inputCityName || !inputData || !inputDaysNumber) {
       Alert.alert('Please, full in all fields.', [{text: 'OK'}]);

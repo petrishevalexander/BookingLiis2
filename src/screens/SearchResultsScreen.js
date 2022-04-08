@@ -3,11 +3,8 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {HotelItem} from '../components/HotelItem';
 import {useSelector} from 'react-redux';
 
-export const HomeScreen = ({navigation}) => {
+export const SearchResultsScreen = ({navigation}) => {
   const data = useSelector(state => state.hotelsReducer.data);
-
-  const favHotels = useSelector(state => state.hotelsReducer.favourite);
-  console.log(favHotels);
 
   const goToHotel = hotel => {
     navigation.navigate('HotelScreen', {hotel});

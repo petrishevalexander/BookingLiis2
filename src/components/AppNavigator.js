@@ -2,11 +2,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import React from 'react';
-import {HomeScreen} from '../screens/HomeScreen';
+import {SearchResultsScreen} from '../screens/SearchResultsScreen';
 import {HotelScreen} from '../screens/HotelScreen';
 import {FavScreen} from '../screens/FavScreen';
 import {SearchBlock} from './SearchBlock';
-import {TestComp} from '../components/TestComp';
 //--
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
@@ -17,7 +16,10 @@ export function TopTabNavigator() {
     <>
       <SearchBlock />
       <Tab.Navigator>
-        <Tab.Screen name="HomeScreen" component={HomeScreen} />
+        <Tab.Screen
+          name="SearchResultsScreen"
+          component={SearchResultsScreen}
+        />
         <Tab.Screen name="FavScreen" component={FavScreen} />
       </Tab.Navigator>
     </>
@@ -33,16 +35,8 @@ export const AppNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen
-          name="TopTabNavigator"
-          component={TopTabNavigator}
-          // options={{title: 'TopTabNavigator'}}
-        />
-        <Stack.Screen
-          name="HotelScreen"
-          component={HotelScreen}
-          options={{title: 'HotelScreen'}}
-        />
+        <Stack.Screen name="TopTabNavigator" component={TopTabNavigator} />
+        <Stack.Screen name="HotelScreen" component={HotelScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,4 +1,4 @@
-import {SET_HOTELS, LOAD_DATA, SET_FAV_HOTELS} from './types';
+import {SET_HOTELS, LOAD_DATA, TOGGLE_SELECTED} from './types';
 
 export const setHotels = payload => ({
   type: SET_HOTELS,
@@ -10,7 +10,7 @@ export const loadData = payload => ({
   payload: payload,
 });
 
-export const setFavHotels = payload => ({
-  type: SET_FAV_HOTELS,
+export const toggleSelected = payload => ({
+  type: TOGGLE_SELECTED,
   payload: payload,
 });

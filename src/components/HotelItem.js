@@ -2,13 +2,16 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {THEME} from '../assets/theme';
-import {setFavHotels} from '../store/actions';
+import {setFavHotels, toggleSelected} from '../store/actions';
 
 export const HotelItem = ({hotel, goToHotel}) => {
   let arrayStars = new Array(hotel.stars).fill(1);
 
-  // const favHotels = useSelector(state => state.hotelsReducer.favourite);
   const dispatch = useDispatch();
+
+  const changeSelectParam = () => {
+    dispatch(toggleSelected(hotel.hotelId));
+  };
 
   return (
     <TouchableOpacity style={styles.cardWrap} onPress={() => goToHotel(hotel)}>
@@ -33,10 +36,14 @@ export const HotelItem = ({hotel, goToHotel}) => {
         </View>
       </View>
       <View style={styles.likeBlock}>
-        <TouchableOpacity onPress={() => dispatch(setFavHotels(hotel))}>
+        <TouchableOpacity onPress={changeSelectParam}>
           <Image
             style={styles.heartImg}
-            source={require('../assets/img/heart_full.png')}
+            source={
+              hotel.selected
+                ? require('../assets/img/heart_full.png')
+                : require('../assets/img/heart_empty.png')
+            }
           />
         </TouchableOpacity>
       </View>
