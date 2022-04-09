@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {THEME} from '../assets/theme';
-import {setFavHotels, toggleSelected} from '../store/actions';
+import {toggleSelected} from '../store/actions';
 
 export const HotelItem = ({hotel, goToHotel}) => {
   let arrayStars = new Array(hotel.stars).fill(1);
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     padding: 5,
     height: 100,
     backgroundColor: THEME.WHITE_COLOR,
-    shadowColor: '#000000',
+    shadowColor: THEME.BLACK_COLOR,
     shadowOpacity: 0.1,
   },
   hotelImageBlock: {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   heartImg: {
-    width: 27,
+    width: 29,
     height: 25,
     margin: 10,
   },

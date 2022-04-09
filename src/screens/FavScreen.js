@@ -7,8 +7,9 @@ export const FavScreen = ({navigation}) => {
   const favHotels = useSelector(state => state.hotelsReducer.favourite);
   console.log('favHotels', favHotels);
 
+  const place = 'favScreen';
   const goToHotel = hotel => {
-    navigation.navigate('HotelScreen', {hotel});
+    navigation.navigate('HotelScreen', {hotel, place});
   };
 
   return (

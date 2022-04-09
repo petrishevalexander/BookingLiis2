@@ -6,8 +6,9 @@ import {useSelector} from 'react-redux';
 export const SearchResultsScreen = ({navigation}) => {
   const data = useSelector(state => state.hotelsReducer.data);
 
+  const place = 'searchResultScreen';
   const goToHotel = hotel => {
-    navigation.navigate('HotelScreen', {hotel});
+    navigation.navigate('HotelScreen', {hotel, place});
   };
 
   return (
