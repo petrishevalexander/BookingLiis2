@@ -1,9 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
 import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
 
 export const LoginScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [alert, setAlert] = useState(false);
+
+  const onChangeEmail = value => {
+    setEmail(value);
+    setAlert(false);
+  };
+
+  const onChangePassword = value => {
+    setPassword(value);
+    setAlert(false);
+  };
+
+  const onButtonPress = () => {
+    const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    // const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{8,}/;
+    const regPassword = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    if (regEmail.test(email) === true && password.match(regPassword)) {
+      console.log('valid');
+    } else {
+      console.log('unvalid!!');
+      setAlert(true);
+    }
+  };
+
   return (
     <View>
       <ImageBackground
@@ -18,22 +44,28 @@ export const LoginScreen = () => {
             <TextInput
               placeholder="Логин"
               style={styles.input}
-              //   onChangeText={setInputCityName}
-              //   value={inputCityName}
+              onChangeText={value => onChangeEmail(value)}
+              value={email}
             />
             <TextInput
+              secureTextEntry
               placeholder="Пароль"
               style={styles.input}
-              //   onChangeText={setInputCityName}
-              //   value={inputCityName}
+              onChangeText={value => onChangePassword(value)}
+              value={password}
             />
           </View>
+          {alert === true ? (
+            <Text style={{color: THEME.WHITE_COLOR}}>
+              Неверный логин или пароль. Повторите попытку
+            </Text>
+          ) : null}
+
           <View style={styles.button}>
-            <CustomButton
-              onPress={() => console.log('login pressed')}
-              title={'Войти'}
-            />
+            <CustomButton onPress={onButtonPress} title={'Войти'} />
           </View>
+          <Text style={{color: '#fff'}}>{email}</Text>
+          <Text style={{color: '#fff'}}>{password}</Text>
         </View>
       </ImageBackground>
     </View>
