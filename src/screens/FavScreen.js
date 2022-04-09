@@ -15,7 +15,7 @@ export const FavScreen = ({navigation}) => {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.searchResutls}>
-          <Text style={styles.header}>Избранное:</Text>
+          <Text style={styles.header}>Отели, которые Вам понравились:</Text>
           {favHotels.map(item => (
             <HotelItem key={item.hotelId} hotel={item} goToHotel={goToHotel} />
           ))}

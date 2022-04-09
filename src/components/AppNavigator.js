@@ -19,8 +19,13 @@ export function TopTabNavigator() {
         <Tab.Screen
           name="SearchResultsScreen"
           component={SearchResultsScreen}
+          options={{title: 'Поиск'}}
         />
-        <Tab.Screen name="FavScreen" component={FavScreen} />
+        <Tab.Screen
+          name="FavScreen"
+          component={FavScreen}
+          options={{title: 'Избранное'}}
+        />
       </Tab.Navigator>
     </>
   );
