@@ -44,6 +44,7 @@ export const SearchBlock = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.appHeader}>
         <Text style={styles.headerName}>Simple Hotel Check</Text>
+
         {/* <TouchableOpacity onPress={() => console.log('exit')}>
           <Image
             style={styles.exitImg}

@@ -20,16 +20,15 @@ export const LoginScreen = ({navigation}) => {
   };
 
   const onButtonPress = async () => {
-    await AsyncStorage.setItem('token', email);
+    // await AsyncStorage.setItem('token', email);
     const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     const regPassword = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
     if (regEmail.test(email) === true && password.match(regPassword)) {
-      console.log('valid');
+      await AsyncStorage.setItem('token', email);
       setPassword('');
       setEmail('');
       navigation.navigate('TopTabNavigator');
     } else {
-      console.log('unvalid!!');
       setAlert(true);
     }
   };
@@ -39,7 +38,6 @@ export const LoginScreen = ({navigation}) => {
     if (value !== null) {
       navigation.navigate('TopTabNavigator');
     } else {
-      console.log('error');
     }
   };
 
@@ -58,14 +56,22 @@ export const LoginScreen = ({navigation}) => {
           <View style={styles.loginInfo}>
             <TextInput
               placeholder="Логин"
-              style={styles.input}
+              style={
+                alert
+                  ? {...styles.input, borderColor: THEME.RED_COLOR}
+                  : styles.input
+              }
               onChangeText={value => onChangeEmail(value)}
               value={email}
             />
             <TextInput
               secureTextEntry
               placeholder="Пароль"
-              style={styles.input}
+              style={
+                alert
+                  ? {...styles.input, borderColor: THEME.RED_COLOR}
+                  : styles.input
+              }
               onChangeText={value => onChangePassword(value)}
               value={password}
             />
@@ -79,8 +85,6 @@ export const LoginScreen = ({navigation}) => {
           <View style={styles.button}>
             <CustomButton onPress={onButtonPress} title={'Войти'} />
           </View>
-          <Text style={{color: '#fff'}}>{email}</Text>
-          <Text style={{color: '#fff'}}>{password}</Text>
         </View>
       </ImageBackground>
     </View>

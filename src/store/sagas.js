@@ -1,11 +1,9 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {setHotels} from './actions';
 import {LOAD_DATA} from './types';
 
 function fetchData(data) {
-  console.log(JSON.stringify(data));
   return fetch(
     `https://engine.hotellook.com/api/v2/cache.json?location=${data.city}&currency=rub&checkIn=${data.dateCheckIn}&checkOut=${data.dateCheckOut}&limit=10`,
   ).then(response => {

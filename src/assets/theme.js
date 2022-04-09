@@ -5,4 +5,5 @@ export const THEME = {
   GRAY_COLOR: '#686868',
   GREEN_COLOR: '#6AAF75',
   LIGHT_GREEN_COLOR: '#dbe6dc',
+  RED_COLOR: '#FF3B30',
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   Image,
   ImageBackground,
   ScrollView,
@@ -47,14 +48,13 @@ export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
             <TouchableOpacity onPress={() => goBack()}>
               <Image source={require('../assets/img/goBack.png')} />
             </TouchableOpacity>
-
             <TouchableOpacity onPress={changeSelectParam}>
               <Image
                 style={styles.heartImg}
                 source={
                   hotel.selected
                     ? require('../assets/img/heart_full.png')
-                    : require('../assets/img/heart_empty.png')
+                    : require('../assets/img/heart_empty_white.png')
                 }
               />
             </TouchableOpacity>
@@ -118,7 +118,7 @@ export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
           </View>
           <View style={styles.bookingButton}>
             <CustomButton
-              onPress={() => console.log('Booked!')}
+              onPress={() => Alert.alert('Бронь прошла успешно!')}
               title={'Забронировать'}
             />
           </View>
@@ -149,11 +149,13 @@ const styles = StyleSheet.create({
     textShadowRadius: 5,
   },
   imageBackgroundButtons: {
+    paddingHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     position: 'absolute',
-    top: -170,
+    top: -180,
     width: '100%',
-    justifyContent: 'space-between',
   },
   heartImg: {
     width: 29,

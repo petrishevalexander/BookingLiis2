@@ -28,7 +28,7 @@ export const SearchResultsScreen = ({navigation}) => {
       <View style={styles.container}>
         <View style={styles.searchResutls}>
           <View style={styles.listHeader}>
-            <Text style={styles.header}>Подходящие бронирования</Text>
+            <Text style={styles.header}>Подходящие бронирования:</Text>
             <TouchableOpacity onPress={onExit}>
               <Image
                 style={styles.exitImg}
