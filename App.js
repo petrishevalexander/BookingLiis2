@@ -7,8 +7,7 @@ import {store} from './src/store/index';
 const App = () => {
   return (
     <Provider store={store}>
-      {/* <AppNavigator /> */}
-      <LoginScreen />
+      <AppNavigator />
     </Provider>
   );
 };

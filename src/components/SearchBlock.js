@@ -1,9 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import {useDispatch, useSelector} from 'react-redux';
 import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
+import {LoginScreen} from '../screens/LoginScreen';
 import {loadData} from '../store/actions';
 
 export const SearchBlock = ({navigation}) => {
@@ -33,6 +42,16 @@ export const SearchBlock = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.appHeader}>
+        <Text style={styles.headerName}>Simple Hotel Check</Text>
+        <TouchableOpacity onPress={() => <LoginScreen />}>
+          <Image
+            style={styles.exitImg}
+            source={require('../assets/img/exit.png')}
+          />
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.searchBlock}>
         <Text style={{...styles.header, paddingHorizontal: 10}}>
           Куда едем?
@@ -81,6 +100,13 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 50,
   },
+  appHeader: {
+    // borderWidth: 1,
+    marginHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   searchBlock: {
     backgroundColor: THEME.WHITE_COLOR,
     paddingVertical: 10,
@@ -114,5 +140,13 @@ const styles = StyleSheet.create({
   },
   inputDate: {
     width: '45%',
+  },
+  exitImg: {
+    width: 25,
+    height: 25,
+  },
+  headerName: {
+    fontWeight: '700',
+    fontSize: 25,
   },
 });

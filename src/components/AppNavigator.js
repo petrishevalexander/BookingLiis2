@@ -1,15 +1,15 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import React from 'react';
 import {SearchResultsScreen} from '../screens/SearchResultsScreen';
 import {HotelScreen} from '../screens/HotelScreen';
 import {FavScreen} from '../screens/FavScreen';
 import {SearchBlock} from './SearchBlock';
-//--
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {LoginScreen} from '../screens/LoginScreen';
 
 const Tab = createMaterialTopTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export function TopTabNavigator() {
   return (
@@ -30,8 +30,6 @@ export function TopTabNavigator() {
     </>
   );
 }
-//--
-const Stack = createNativeStackNavigator();
 
 export const AppNavigator = () => {
   return (
@@ -40,6 +38,7 @@ export const AppNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="TopTabNavigator" component={TopTabNavigator} />
         <Stack.Screen name="HotelScreen" component={HotelScreen} />
       </Stack.Navigator>

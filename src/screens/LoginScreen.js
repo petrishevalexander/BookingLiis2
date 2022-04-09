@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
 import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [alert, setAlert] = useState(false);
@@ -20,10 +21,10 @@ export const LoginScreen = () => {
 
   const onButtonPress = () => {
     const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    // const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{8,}/;
     const regPassword = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
     if (regEmail.test(email) === true && password.match(regPassword)) {
       console.log('valid');
+      navigation.navigate('TopTabNavigator');
     } else {
       console.log('unvalid!!');
       setAlert(true);
@@ -81,7 +82,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     margin: 20,
-    // borderWidth: 1,
   },
   greeting: {
     justifyContent: 'flex-start',
