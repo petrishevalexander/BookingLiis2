@@ -14,7 +14,7 @@ import {CustomButton} from '../components/CustomButton';
 import {toggleSelected} from '../store/actions';
 
 //
-export const HotelScreen = ({route, navigation: {goBack}}) => {
+export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
   const data = useSelector(state => state.hotelsReducer.data);
   const favHotels = useSelector(state => state.hotelsReducer.favourite);
   const hotelId = route.params.hotel.hotelId;
@@ -30,6 +30,9 @@ export const HotelScreen = ({route, navigation: {goBack}}) => {
   const dispatch = useDispatch();
 
   const changeSelectParam = () => {
+    if (place === 'favScreen') {
+      navigate('TopTabNavigator');
+    }
     dispatch(toggleSelected(hotel.hotelId));
   };
 
@@ -58,9 +61,10 @@ export const HotelScreen = ({route, navigation: {goBack}}) => {
           </View>
           <Text style={styles.imgText}>{hotel.hotelName}</Text>
           <View style={styles.starsWrap}>
-            {arrayStars.map(item => {
+            {arrayStars.map((item, index) => {
               return (
                 <Image
+                  key={index}
                   style={styles.starImg}
                   source={require('../assets/img/star.png')}
                 />

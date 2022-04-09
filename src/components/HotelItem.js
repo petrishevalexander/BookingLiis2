@@ -25,9 +25,10 @@ export const HotelItem = ({hotel, goToHotel}) => {
         <Text>{hotel.hotelName}</Text>
         <Text>Цена: {hotel.priceFrom}р.</Text>
         <View style={styles.starsWrap}>
-          {arrayStars.map(item => {
+          {arrayStars.map((item, index) => {
             return (
               <Image
+                key={index}
                 style={styles.starImg}
                 source={require('../assets/img/star.png')}
               />
