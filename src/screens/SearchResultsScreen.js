@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   listHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginHorizontal: 10,
   },
   header: {
     fontWeight: '600',

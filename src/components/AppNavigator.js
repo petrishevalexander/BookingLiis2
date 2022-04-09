@@ -7,6 +7,7 @@ import {FavScreen} from '../screens/FavScreen';
 import {SearchBlock} from './SearchBlock';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {LoginScreen} from '../screens/LoginScreen';
+import {THEME} from '../assets/theme';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();

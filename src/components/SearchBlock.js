@@ -44,7 +44,6 @@ export const SearchBlock = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.appHeader}>
         <Text style={styles.headerName}>Simple Hotel Check</Text>
-
         {/* <TouchableOpacity onPress={() => console.log('exit')}>
           <Image
             style={styles.exitImg}
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   appHeader: {
-    // borderWidth: 1,
     marginHorizontal: 15,
     flexDirection: 'row',
     alignItems: 'center',
