@@ -44,12 +44,12 @@ export const SearchBlock = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.appHeader}>
         <Text style={styles.headerName}>Simple Hotel Check</Text>
-        <TouchableOpacity onPress={() => <LoginScreen />}>
+        {/* <TouchableOpacity onPress={() => console.log('exit')}>
           <Image
             style={styles.exitImg}
             source={require('../assets/img/exit.png')}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.searchBlock}>

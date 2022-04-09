@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
 import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -19,17 +19,31 @@ export const LoginScreen = ({navigation}) => {
     setAlert(false);
   };
 
-  const onButtonPress = () => {
+  const onButtonPress = async () => {
+    await AsyncStorage.setItem('token', email);
     const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     const regPassword = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
     if (regEmail.test(email) === true && password.match(regPassword)) {
       console.log('valid');
+      setPassword('');
+      setEmail('');
       navigation.navigate('TopTabNavigator');
     } else {
       console.log('unvalid!!');
       setAlert(true);
     }
   };
+
+  const getData = async () => {
+    const value = await AsyncStorage.getItem('token');
+    if (value !== null) {
+      navigation.navigate('TopTabNavigator');
+    } else {
+      console.log('error');
+    }
+  };
+
+  getData();
 
   return (
     <View>
