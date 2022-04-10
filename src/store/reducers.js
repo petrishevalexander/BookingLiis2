@@ -1,4 +1,4 @@
-import {SET_HOTELS, TOGGLE_SELECTED} from './types';
+import {SET_HOTELS, SORT_SELECTED, TOGGLE_SELECTED} from './types';
 
 const initialState = {
   data: [],
@@ -31,6 +31,19 @@ export const hotelsReducer = (state = initialState, action) => {
         ...state,
         data: updatedHotelList,
         favourite: updateFavList,
+      };
+    case SORT_SELECTED:
+      const newArray = JSON.parse(JSON.stringify(state.favourite));
+      newArray.sort((a, b) => {
+        if (action.payload === 'price') {
+          return a.priceAvg > b.priceAvg ? 1 : -1;
+        } else if (action.payload === 'rating') {
+          return a.stars < b.stars ? 1 : -1;
+        }
+      });
+      return {
+        ...state,
+        favourite: newArray,
       };
     default:
       return state;

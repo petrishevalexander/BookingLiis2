@@ -3,7 +3,9 @@ export const THEME = {
   WHITE_COLOR: '#fff',
   BLACK_COLOR: '#000',
   GRAY_COLOR: '#686868',
+  LIGHT_GRAY_COLOR: '#BFC9CA',
   GREEN_COLOR: '#6AAF75',
   LIGHT_GREEN_COLOR: '#dbe6dc',
   RED_COLOR: '#FF3B30',
+  BLUE_COLOR: '#AED6F1',
 };
