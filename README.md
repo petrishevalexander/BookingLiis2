@@ -19,7 +19,7 @@
 +7 (981) 858-27-23
 
 sash_petrishev@mail.ru
-
+![]<img src="https://github.com/petrishevalexander/BookingLiis2/blob/master/src/assets/screenshots/01.png" width="200">
 ![](https://github.com/petrishevalexander/BookingLiis2/blob/master/src/assets/screenshots/01.png)
 ![](https://github.com/petrishevalexander/BookingLiis2/blob/master/src/assets/screenshots/02.png)
 ![](https://github.com/petrishevalexander/BookingLiis2/blob/master/src/assets/screenshots/03.png)
