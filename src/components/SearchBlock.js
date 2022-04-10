@@ -1,18 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert, StyleSheet, Text, TextInput, View} from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
-import {LoginScreen} from '../screens/LoginScreen';
 import {loadData} from '../store/actions';
 
 export const SearchBlock = ({navigation}) => {

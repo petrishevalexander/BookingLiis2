@@ -1,4 +1,4 @@
-import {SET_FAV_HOTELS, SET_HOTELS, TOGGLE_SELECTED} from './types';
+import {SET_HOTELS, TOGGLE_SELECTED} from './types';
 
 const initialState = {
   data: [],
