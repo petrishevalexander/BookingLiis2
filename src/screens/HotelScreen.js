@@ -14,7 +14,6 @@ import {THEME} from '../assets/theme';
 import {CustomButton} from '../components/CustomButton';
 import {toggleSelected} from '../store/actions';
 
-//
 export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
   const data = useSelector(state => state.hotelsReducer.data);
   const favHotels = useSelector(state => state.hotelsReducer.favourite);
@@ -25,8 +24,6 @@ export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
     place === 'searchResultScreen'
       ? data.find(h => h.hotelId === hotelId)
       : favHotels.find(h => h.hotelId === hotelId);
-
-  let arrayStars = new Array(hotel.stars).fill(1);
 
   const dispatch = useDispatch();
 
@@ -61,7 +58,7 @@ export const HotelScreen = ({route, navigation: {goBack, navigate}}) => {
           </View>
           <Text style={styles.imgText}>{hotel.hotelName}</Text>
           <View style={styles.starsWrap}>
-            {arrayStars.map((item, index) => {
+            {new Array(hotel.stars).fill(1).map((item, index) => {
               return (
                 <Image
                   key={index}

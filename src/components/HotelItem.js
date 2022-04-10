@@ -5,8 +5,6 @@ import {THEME} from '../assets/theme';
 import {toggleSelected} from '../store/actions';
 
 export const HotelItem = ({hotel, goToHotel}) => {
-  let arrayStars = new Array(hotel.stars).fill(1);
-
   const dispatch = useDispatch();
 
   const changeSelectParam = () => {
@@ -25,7 +23,7 @@ export const HotelItem = ({hotel, goToHotel}) => {
         <Text>{hotel.hotelName}</Text>
         <Text>Цена: {hotel.priceFrom}р.</Text>
         <View style={styles.starsWrap}>
-          {arrayStars.map((item, index) => {
+          {new Array(hotel.stars).fill(1).map((item, index) => {
             return (
               <Image
                 key={index}

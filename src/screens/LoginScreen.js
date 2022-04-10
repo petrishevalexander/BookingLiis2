@@ -20,7 +20,6 @@ export const LoginScreen = ({navigation}) => {
   };
 
   const onButtonPress = async () => {
-    // await AsyncStorage.setItem('token', email);
     const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     const regPassword = /^[a-zA-Z0-9!@#$%^&*]{8,}$/;
     if (regEmail.test(email) === true && password.match(regPassword)) {
