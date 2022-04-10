@@ -20,7 +20,7 @@
 
 sash_petrishev@mail.ru
 
-![](https://github.com/petrishevalexander/BookingLiis2/src/assets/screenshots/01.png)
+![](https://github.com/petrishevalexander/BookingLiis2//blob/master/src/assets/screenshots/01.png)
 ![](https://github.com/petrishevalexander/BookingLiis2/src/assets/screenshots/02.png)
 ![](https://github.com/petrishevalexander/BookingLiis2/src/assets/screenshots/03.png)
 ![](https://github.com/petrishevalexander/BookingLiis2/src/assets/screenshots/04.png)
